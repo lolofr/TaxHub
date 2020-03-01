@@ -140,14 +140,7 @@ INSERT INTO bib_taxref_categories_lr VALUES ('NE', 'Autre', 'Non évaluée', 'Es
 
 ---import taxref--
 TRUNCATE TABLE import_taxref;
-\COPY import_taxref (regne, phylum, classe, ordre, famille, sous_famille, tribu, group1_inpn, 
-       group2_inpn, cd_nom, cd_taxsup, cd_sup, cd_ref, rang, lb_nom, 
-       lb_auteur, nom_complet, nom_complet_html, nom_valide, nom_vern, 
-       nom_vern_eng, habitat, fr, gf, mar, gua, sm, sb, spm, may, epa, 
-       reu, sa, ta, taaf, pf, nc, wf, cli, url)
-FROM  '/tmp/taxhub/TAXREFv11.txt'
-WITH  CSV HEADER 
-DELIMITER E'\t'  encoding 'UTF-8';
+\COPY import_taxref (regne, phylum, classe, ordre, famille, sous_famille, tribu, group1_inpn, group2_inpn, cd_nom, cd_taxsup, cd_sup, cd_ref, rang, lb_nom, lb_auteur, nom_complet, nom_complet_html, nom_valide, nom_vern, nom_vern_eng, habitat, fr, gf, mar, gua, sm, sb, spm, may, epa, reu, sa, ta, taaf, pf, nc, wf, cli, url) FROM  '/tmp/taxhub/TAXREFv11.txt' WITH  CSV HEADER DELIMITER E'\t'  encoding 'UTF-8';
 
 --insertion dans la table taxref
 TRUNCATE TABLE taxref CASCADE;
